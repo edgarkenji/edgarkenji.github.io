@@ -6,10 +6,10 @@ highlighter:      rouge
 permalink:        pretty
 
 # Setup
-title:            Ikusagami
+title:            Edgar Kenji
 tagline:          'Coding, gaming and stuff'
-description:      'Mostly iOS programming with Swift and occasional ramblings about nerd stuff'
-url:              http://ikusagami.com
+description:      'Mostly Swift coding, gaming and other nerd stuff'
+url:              http://edgarkenji.dev
 
 author:
   name:           'Edgar Kenji'
