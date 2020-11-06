@@ -5,6 +5,15 @@ layout: default
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">{{ page.date | date_to_string }}</span>
+    <div class="post-tags">
+  {% for tag in page.tags %}
+    {% assign tag_slug = tag | slugify: "raw" %}
+    <a class="tag-link" href={{ site.baseurl | append: "/tags/" | append: tag_slug | append: "/" }} rel="category tag">
+      #{{ tag }}
+    </a>
+  {% endfor %}
+  </div>
+
   {{ content }}
 </div>
 
