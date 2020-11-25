@@ -3,11 +3,11 @@ layout: page
 title: About
 ---
 
-🇬🇧 Edgar Kenji is a mobile app and game developer, anime and game nerd, crazy cat guy, sketches on his free time, and sometimes tries his hands on cooking.
+Edgar Kenji is an iOS developer, but also works with Android app and game development. Outside of work he's an anime and game nerd, crazy cat guy, likes to draw and currently learning digital painting, 3D modeling, and cooking.
 
 # Professional career:
 
-## Senior Mobile Developer - Zaz Mobilidade S/A (October 2020 ~ October 2017)
+## Senior Mobile Developer - Zaz Mobilidade S/A (November 2020 ~ October 2017)
 
 * Native iOS app development using Swift
 * Native Android app development using Kotlin
@@ -36,55 +36,16 @@ title: About
 * Intern at CEATS/FIA working with front-end development using PHP, and internal tools using VBA
 * Intern at FFLCH working with web educational tools using Perl
 
-# Personal interests:
+# Education and Skills:
 
-* Video-games, experimenting with Twitch streaming
-* Digital painting with iPad Pro and Procreate
-* Character and environment modeling with Blender
-* Anime, series, movies
-* Building Lego and Gunpla
-* Cooking
+## Bachelor of Computer Science - IME-USP (2012)
 
----
+* Created a Gameboy Advance game from scratch
 
-🇧🇷 Edgar Kenji é desenvolvedor de apps mobile, nerd de animes e jogos, gateiro maluco, faz rabiscos no tempo livre, e às vezes tenta cozinhar.
+## Languages
 
-# Carreira profissional:
+* Portuguese: Native
+* English: Fluent in reading and writing, advanced in speaking and listening
+* Japanese: Fluent in listening and reading, advanced in speaking and writing
+* Spanish: Beginner
 
-## Desenvolvedor Mobile Sênior - Zaz Mobilidade S/A (Outubro 2020 ~ Outubro 2017)
-
-* Desenvolvimento de app iOS nativo usando Swift
-* Desenvolvimento de app Android nativo usando Kotlin
-* Comunicação com IoT usando BLE
-* Padrões de design (MVVM)
-* UX/UI, Zeplin e Sketch
-* Programação reativa com RxSwift (iOS) e RxJava (Android)
-* BDD/TDD
-* Gerenciamento de dependências no iOS usando Carthage e Swift Package
-* Gerenciamento do processo de desenvolvimento como Scrum Master
-
-## Mobile Developer / Intern - Devcase Tecnologia (October 2017 ~ March 2007)
-
-* Desenvolvimento de apps iOS nativos usando Swift e Objective-C
-* Desenvolvimento de apps Android nativos Kotlin e Java
-* Desenvolvimento de apps híbridos usando jQuery Mobile
-* Desenvolvimento de jogos para iOS usando Cocos2D
-* Desenvolvimento de front-end usando Java Swift, PHP, Wordpress, Joomla
-* Desenvolvimento de back-end usando Java / JSF
-* Desenvolvimento de jogos para celular usando J2ME
-
-## Other work
-
-* Estagiário em FIA/USP trabalhando com desenvolvimento front-end usando .NET / C# (Março 2007 ~ Setembro 2006)
-* Trabalhador temporário em fábrica na Ibiden do Japão (Março 2006 ~ Dezembro 2005)
-* Estagiário em CEATS/FIA trabalhando com desenvolvimento de front-end usando PHP, e ferramentas internas usando VBA
-* Estagiário em FFLCH trabalhando com ferramentas educacionais web usando Perl
-
-# Interesses pessoais:
-
-* Video-games, experimentando lives no Twitch
-* Pintura digital com iPad Pro e Procreate
-* Modelagem de personagens e ambientes 3D com Blender
-* Anime, séries, filmes
-* Montagem de Lego e Gunpla
-* Cozinha
