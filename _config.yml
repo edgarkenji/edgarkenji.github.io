@@ -27,3 +27,12 @@ collections:
   tags:
     output: true
     permalink: tags/:path/
+
+
+plugins:
+  - jekyll-analytics
+  
+jekyll_analytics:
+  GoogleAnalytics:          # Add, if you want to track with Google Analytics
+    id: G-L5WQ6CEVQ9          # Required - replace with your tracking id
+    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
