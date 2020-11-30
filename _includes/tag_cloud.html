@@ -2,7 +2,7 @@
   All tags:
   <ul>
     {% assign tags = site.posts | all_tags %}
-      <li class="debug">{{ tags }}</li>
+    <li class="debug">{{ tags }}</li>
     {% for tag in tags %}
       {% assign tag_slug = tag['name'] | slugify: "raw" %}
       <li>
