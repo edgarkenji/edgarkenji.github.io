@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Home &middot; Edgar Kenji
+    
+  </title>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1279348-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/debug.css">
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>Edgar Kenji</h1>
+      <p class="lead">Coding, gaming and other nerd stuff</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item active">
+        <a href="/">Home</a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">About</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/portfolio/">Portfolio</a>
+            </li>
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/tags/">Tags</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+
+    </ul>
+
+    <div class="all-tags">
+  All tags:
+  <ul>
+    
+    <li class="debug">{"name"=>"devlog", "count"=>6}{"name"=>"swiftui", "count"=>6}{"name"=>"swift", "count"=>6}{"name"=>"ios", "count"=>6}</li>
+    
+      
+      <li>
+        <a class="tag-link"
+          href=/tags/devlog/
+          rel="category tag">
+          #devlog (6)
+        </a>
+      </li>
+    
+      
+      <li>
+        <a class="tag-link"
+          href=/tags/swiftui/
+          rel="category tag">
+          #swiftui (6)
+        </a>
+      </li>
+    
+      
+      <li>
+        <a class="tag-link"
+          href=/tags/swift/
+          rel="category tag">
+          #swift (6)
+        </a>
+      </li>
+    
+      
+      <li>
+        <a class="tag-link"
+          href=/tags/ios/
+          rel="category tag">
+          #ios (6)
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+    <p>&copy; 2020. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2020/11/30/devlog-a-simple-todo-app-6/">
+        Devlog - A simple to-do app - part 6
+      </a>
+    </h1>
+
+    <span class="post-date">30 Nov 2020</span>
+      <div class="post-tags">
+  
+    
+    <a class="tag-link" href=/tags/devlog/ rel="category tag">
+      #devlog
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/swiftui/ rel="category tag">
+      #swiftui
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/swift/ rel="category tag">
+      #swift
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/ios/ rel="category tag">
+      #ios
+    </a>
+  
+  </div>
+
+
+    <p>I’ll begin this devlog with a simple to-do app in SwiftUI. The idea is to explain the basic concepts of this language while we learn together. This will be the general roadmap of this series:</p>
+
+<ul>
+  <li><a href="% post_url 2020-11-25-devlog-sample-todo-app %">Create a checkbox</a></li>
+  <li><a href="% post_url 2020-11-26-devlog-sample-todo-app-2 %">Add a text to the checkbox</a></li>
+  <li><a href="% post_url 2020-11-27-devlog-sample-todo-app-3 %">Use a data model to show a list of items</a></li>
+  <li><a href="% post_url 2020-11-28-devlog-sample-todo-app-4 %">Add an item</a></li>
+  <li><a href="% post_url 2020-11-29-devlog-sample-todo-app-5 %">Allow editing the text of the item</a></li>
+  <li>Delete an item</li>
+  <li>Add a tab bar and another view with a summary of the items</li>
+  <li>Add persistence to the items</li>
+</ul>
+
+<h2 id="delete-an-item">Delete an item</h2>
+
+<p>Now that we can add and change the content of the items, let’s implement removing them as well. Let’s go back to to our <code class="language-plaintext highlighter-rouge">TodoItemListView</code> where our list is composed:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">TodoItemListView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    
+    <span class="kd">@Binding</span> <span class="k">var</span> <span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="kt">TodoItem</span><span class="p">]</span>
+    
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">List</span> <span class="p">{</span>
+            <span class="kt">ForEach</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="nv">id</span><span class="p">:\</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">in</span>
+                <span class="kt">CheckboxTextfield</span><span class="p">(</span><span class="nv">item</span><span class="p">:</span> <span class="n">item</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="o">.</span><span class="nf">onDelete</span><span class="p">(</span><span class="nv">perform</span><span class="p">:</span> <span class="p">{</span> <span class="n">indexSet</span> <span class="k">in</span> <span class="c1">// add this to allow deleting an item by swiping left on the item</span>
+                <span class="n">items</span><span class="o">.</span><span class="nf">remove</span><span class="p">(</span><span class="nv">atOffsets</span><span class="p">:</span> <span class="n">indexSet</span><span class="p">)</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Run the app, add an item and swipe it to the left. The delete button will be revelead under the item. Quite easy, right?</p>
+
+<p>Now, it’s getting quite boring to look at an empty list of items whenever we start the app or remove all items. How about taking this opportunity to add a view representing an empty list? Something like this:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">TodoItemsEmptyView</span> <span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">VStack</span> <span class="p">{</span>
+            <span class="kt">Spacer</span><span class="p">()</span>
+            <span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"tray"</span><span class="p">)</span>
+                <span class="o">.</span><span class="nf">resizable</span><span class="p">()</span>
+                <span class="o">.</span><span class="nf">scaledToFit</span><span class="p">()</span>
+                <span class="o">.</span><span class="nf">frame</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="mi">48</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">48</span><span class="p">,</span> <span class="nv">alignment</span><span class="p">:</span> <span class="o">.</span><span class="n">center</span><span class="p">)</span>
+                <span class="o">.</span><span class="nf">foregroundColor</span><span class="p">(</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
+            <span class="kt">Text</span><span class="p">(</span><span class="s">"Nothing to do, no way to go home!"</span><span class="p">)</span>
+                <span class="o">.</span><span class="nf">foregroundColor</span><span class="p">(</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
+            <span class="kt">Spacer</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">struct</span> <span class="kt">TodoItemsEmptyView_Previews</span><span class="p">:</span> <span class="kt">PreviewProvider</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">var</span> <span class="nv">previews</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">TodoItemsEmptyView</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>No let’s update our list again:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">TodoItemListView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    
+    <span class="kd">@Binding</span> <span class="k">var</span> <span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="kt">TodoItem</span><span class="p">]</span>
+    
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">items</span><span class="o">.</span><span class="n">isEmpty</span> <span class="p">{</span>
+            <span class="kt">TodoItemsEmptyView</span><span class="p">()</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="kt">List</span> <span class="p">{</span>
+                <span class="kt">ForEach</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="nv">id</span><span class="p">:\</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">in</span>
+                    <span class="kt">CheckboxTextfield</span><span class="p">(</span><span class="nv">item</span><span class="p">:</span> <span class="n">item</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="o">.</span><span class="nf">onDelete</span><span class="p">(</span><span class="nv">perform</span><span class="p">:</span> <span class="p">{</span> <span class="n">indexSet</span> <span class="k">in</span>
+                    <span class="n">items</span><span class="o">.</span><span class="nf">remove</span><span class="p">(</span><span class="nv">atOffsets</span><span class="p">:</span> <span class="n">indexSet</span><span class="p">)</span>
+                <span class="p">})</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now we have an empty list view to nag us to add something.</p>
+
+<p>You can check the full source code on <a href="https://github.com/edgarkenji/SimpleTodo/tree/feature/checkbox">Github</a>. Keep in mind that since it might be incomplete as I progress through this series.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2020/11/29/devlog-a-simple-todo-app-5/">
+        Devlog - A simple to-do app - part 5
+      </a>
+    </h1>
+
+    <span class="post-date">29 Nov 2020</span>
+      <div class="post-tags">
+  
+    
+    <a class="tag-link" href=/tags/devlog/ rel="category tag">
+      #devlog
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/swiftui/ rel="category tag">
+      #swiftui
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/swift/ rel="category tag">
+      #swift
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/ios/ rel="category tag">
+      #ios
+    </a>
+  
+  </div>
+
+
+    <p>I’ll begin this devlog with a simple to-do app in SwiftUI. The idea is to explain the basic concepts of this language while we learn together. This will be the general roadmap of this series:</p>
+
+<ul>
+  <li><a href="% post_url 2020-11-25-devlog-sample-todo-app %">Create a checkbox</a></li>
+  <li><a href="% post_url 2020-11-26-devlog-sample-todo-app-2 %">Add a text to the checkbox</a></li>
+  <li><a href="% post_url 2020-11-27-devlog-sample-todo-app-3 %">Use a data model to show a list of items</a></li>
+  <li><a href="% post_url 2020-11-28-devlog-sample-todo-app-4 %">Add an item</a></li>
+  <li>Allow editing the text of the item</li>
+  <li>Delete an item</li>
+  <li>Add a tab bar and another view with a summary of the items</li>
+  <li>Add persistence to the items</li>
+</ul>
+
+<h2 id="allow-editing-the-text-of-the-item">Allow editing the text of the item</h2>
+
+<p>We can add infinite items to our list but it’s not useful if we can’t edit the text on it, is it? So our goal now is to change the checkbox’s text label to a textfield. So I’ll rename our <code class="language-plaintext highlighter-rouge">CheckboxText</code> to <code class="language-plaintext highlighter-rouge">CheckboxTextfield</code> (also update all references):</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">CheckboxTextfield</span> <span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="kd">@State</span> <span class="k">var</span> <span class="nv">item</span><span class="p">:</span> <span class="kt">TodoItem</span>
+    
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">Checkbox</span><span class="p">(</span><span class="nv">isChecked</span><span class="p">:</span> <span class="err">$</span><span class="n">item</span><span class="o">.</span><span class="n">checked</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">TextField</span><span class="p">(</span><span class="s">"Tap to edit your to-do item"</span><span class="p">,</span> <span class="nv">text</span><span class="p">:</span> <span class="err">$</span><span class="n">item</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Run the app and see that we can change the text on the to-do item. That was fast!</p>
+
+<p>We’ll take this opportunity to fix something that might throw some people off. Whenever we toggle the check of an item, the label moves. That’s because our checked image occupies a larger space than when there’s nothing.</p>
+
+<p>So let’s go back to our <code class="language-plaintext highlighter-rouge">Checkbox</code> and add a spacer with the same size and padding:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">var</span> <span class="nv">checkbox</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">ZStack</span> <span class="p">{</span>
+            <span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"square"</span><span class="p">)</span>
+                <span class="o">.</span><span class="nf">resizable</span><span class="p">()</span>
+                <span class="o">.</span><span class="nf">frame</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="nv">alignment</span><span class="p">:</span> <span class="o">.</span><span class="n">center</span><span class="p">)</span>
+                <span class="o">.</span><span class="nf">foregroundColor</span><span class="p">(</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">checked</span> <span class="p">{</span>
+                <span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"checkmark"</span><span class="p">)</span>
+                    <span class="o">.</span><span class="nf">resizable</span><span class="p">()</span>
+                    <span class="o">.</span><span class="nf">frame</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">alignment</span><span class="p">:</span> <span class="o">.</span><span class="n">trailing</span><span class="p">)</span>
+                    <span class="o">.</span><span class="nf">padding</span><span class="p">(</span><span class="kt">EdgeInsets</span><span class="p">(</span><span class="nv">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">leading</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nv">bottom</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nv">trailing</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
+                    <span class="o">.</span><span class="nf">foregroundColor</span><span class="p">(</span><span class="kt">Color</span><span class="o">.</span><span class="n">green</span><span class="p">)</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// Add a spacer to fill up the same space as the checked image</span>
+                <span class="kt">Spacer</span><span class="p">()</span>
+                    <span class="o">.</span><span class="nf">frame</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">alignment</span><span class="p">:</span> <span class="o">.</span><span class="n">trailing</span><span class="p">)</span>
+                    <span class="o">.</span><span class="nf">padding</span><span class="p">(</span><span class="kt">EdgeInsets</span><span class="p">(</span><span class="nv">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">leading</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nv">bottom</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nv">trailing</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>And it’s done! Now the text won’t move around when toggling the checkbox.</p>
+
+<p>You can check the full source code on <a href="https://github.com/edgarkenji/SimpleTodo/tree/feature/checkbox">Github</a>. Keep in mind that since it might be incomplete as I progress through this series.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2020/11/28/devlog-a-simple-todo-app-4/">
+        Devlog - A simple to-do app - part 4
+      </a>
+    </h1>
+
+    <span class="post-date">28 Nov 2020</span>
+      <div class="post-tags">
+  
+    
+    <a class="tag-link" href=/tags/devlog/ rel="category tag">
+      #devlog
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/swiftui/ rel="category tag">
+      #swiftui
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/swift/ rel="category tag">
+      #swift
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/ios/ rel="category tag">
+      #ios
+    </a>
+  
+  </div>
+
+
+    <p>I’ll begin this devlog with a simple to-do app in SwiftUI. The idea is to explain the basic concepts of this language while we learn together. This will be the general roadmap of this series:</p>
+
+<ul>
+  <li><a href="% post_url 2020-11-25-devlog-sample-todo-app %">Create a checkbox</a></li>
+  <li><a href="% post_url 2020-11-26-devlog-sample-todo-app-2 %">Add a text to the checkbox</a></li>
+  <li><a href="% post_url 2020-11-27-devlog-sample-todo-app-3 %">Use a data model to show a list of items</a></li>
+  <li>Add an item</li>
+  <li>Allow editing the text of the item</li>
+  <li>Delete an item</li>
+  <li>Add a tab bar and another view with a summary of the items</li>
+  <li>Add persistence to the items</li>
+</ul>
+
+<h2 id="add-an-item">Add an item</h2>
+
+<p>So our list is a bit boring if we can’t even add to it. We’ll start by improving some things first.</p>
+
+<p>Let’s update our <code class="language-plaintext highlighter-rouge">TodoItem</code> to be <code class="language-plaintext highlighter-rouge">Identifiable</code> so that we can have the list updated correctly later on.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">TodoItem</span><span class="p">:</span> <span class="kt">Identifiable</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span> <span class="o">=</span> <span class="kt">UUID</span><span class="p">()</span>
+    <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="k">var</span> <span class="nv">checked</span><span class="p">:</span> <span class="kt">Bool</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And also make a wrapper for our Checkbox with a text label, so that it holds the state of each item separately:</p>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">CheckboxText</span> <span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="kd">@State</span> <span class="k">var</span> <span class="nv">item</span><span class="p">:</span> <span class="kt">TodoItem</span>
+    
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">Checkbox</span><span class="p">(</span><span class="nv">isChecked</span><span class="p">:</span> <span class="err">$</span><span class="n">item</span><span class="o">.</span><span class="n">checked</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">Text</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>We’ll also use a repository to store all the items in memory for now, and make it an <code class="language-plaintext highlighter-rouge">ObservableObject</code>. That way, SwiftUI will update the list whenever we make changes to the items:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">TodoItemRepository</span> <span class="p">:</span> <span class="kt">ObservableObject</span> <span class="p">{</span>
+    <span class="kd">@Published</span> <span class="k">var</span> <span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="kt">TodoItem</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="nf">init</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="kt">TodoItem</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="n">items</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The idea is to have a general purpose view that holds the list and the other components, such as the add button. We’ll follow the MVVM pattern and use a View Model to hold the logic for adding items:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">TodoItemsViewModel</span> <span class="p">:</span> <span class="kt">ObservableObject</span> <span class="p">{</span>
+    <span class="kd">@ObservedObject</span> <span class="k">var</span> <span class="nv">repository</span><span class="p">:</span> <span class="kt">TodoItemRepository</span>
+    
+    
+    <span class="nf">init</span><span class="p">(</span><span class="nv">repository</span><span class="p">:</span> <span class="kt">TodoItemRepository</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">repository</span> <span class="o">=</span> <span class="n">repository</span>
+    <span class="p">}</span>
+        
+    <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="kt">String</span><span class="o">...</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">items</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span>
+            <span class="k">self</span><span class="o">.</span><span class="n">repository</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">TodoItem</span><span class="p">(</span><span class="nv">description</span><span class="p">:</span> <span class="nv">$0</span><span class="p">,</span> <span class="nv">checked</span><span class="p">:</span> <span class="kc">false</span><span class="p">))</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And our view will be as below. Note that I added the add button at the bottom of the screen to replicate how Apple’s own to-do list works.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">TodoItemsView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="kd">@ObservedObject</span> <span class="k">var</span> <span class="nv">viewModel</span><span class="p">:</span> <span class="kt">TodoItemsViewModel</span>
+    
+    <span class="nf">init</span><span class="p">(</span><span class="nv">viewModel</span><span class="p">:</span> <span class="kt">TodoItemsViewModel</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">viewModel</span> <span class="o">=</span> <span class="n">viewModel</span>
+    <span class="p">}</span>
+    
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">NavigationView</span> <span class="p">{</span>
+            <span class="kt">VStack</span> <span class="p">{</span>
+                <span class="kt">TodoItemListView</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="n">viewModel</span><span class="o">.</span><span class="err">$</span><span class="n">repository</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+                    <span class="o">.</span><span class="nf">listStyle</span><span class="p">(</span><span class="kt">InsetGroupedListStyle</span><span class="p">())</span>
+                <span class="kt">Button</span> <span class="p">{</span>
+                    <span class="n">withAnimation</span> <span class="p">{</span>
+                        <span class="n">viewModel</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="s">""</span><span class="p">)</span>
+                    <span class="p">}</span>
+                <span class="p">}</span> <span class="nv">label</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="kt">HStack</span> <span class="p">{</span>
+                        <span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"plus"</span><span class="p">)</span>
+                        <span class="kt">Text</span><span class="p">(</span><span class="s">"Add new item"</span><span class="p">)</span>
+                    <span class="p">}</span><span class="o">.</span><span class="nf">padding</span><span class="p">(</span><span class="kt">EdgeInsets</span><span class="p">(</span><span class="nv">top</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="nv">leading</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">bottom</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="nv">trailing</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="o">.</span><span class="nf">navigationTitle</span><span class="p">(</span><span class="s">"To-do"</span><span class="p">)</span>
+        <span class="p">}</span><span class="o">.</span><span class="nf">edgesIgnoringSafeArea</span><span class="p">(</span><span class="o">.</span><span class="n">all</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Let’s update our <code class="language-plaintext highlighter-rouge">ContentView</code> and the preview to show this view:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">ContentView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="kd">@EnvironmentObject</span> <span class="k">var</span> <span class="nv">repository</span><span class="p">:</span> <span class="kt">TodoItemRepository</span>
+    
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">TodoItemsView</span><span class="p">(</span><span class="nv">viewModel</span><span class="p">:</span> <span class="kt">TodoItemsViewModel</span><span class="p">(</span><span class="nv">repository</span><span class="p">:</span> <span class="n">repository</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">struct</span> <span class="kt">ContentView_Previews</span><span class="p">:</span> <span class="kt">PreviewProvider</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">var</span> <span class="nv">previews</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">ContentView</span><span class="p">()</span>
+            <span class="o">.</span><span class="nf">environmentObject</span><span class="p">(</span><span class="kt">TodoItemRepository</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="p">[</span>
+                <span class="kt">TodoItem</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">(),</span> <span class="nv">description</span><span class="p">:</span> <span class="s">"Teste 1"</span><span class="p">,</span> <span class="nv">checked</span><span class="p">:</span> <span class="kc">false</span><span class="p">),</span>
+                <span class="kt">TodoItem</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">(),</span> <span class="nv">description</span><span class="p">:</span> <span class="s">"Teste 2"</span><span class="p">,</span> <span class="nv">checked</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+            <span class="p">]))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Note that we’re using <code class="language-plaintext highlighter-rouge">@EnvironmentObject</code> for our repository. The repository is actually initialized on our <code class="language-plaintext highlighter-rouge">SimpleTodoApp</code> and passed over by the environment:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@main</span>
+<span class="kd">struct</span> <span class="kt">SimpleTodoApp</span><span class="p">:</span> <span class="kt">App</span> <span class="p">{</span>
+    <span class="kd">@ObservedObject</span> <span class="k">var</span> <span class="nv">repository</span><span class="p">:</span> <span class="kt">TodoItemRepository</span> <span class="o">=</span> <span class="kt">TodoItemRepository</span><span class="p">()</span>
+    
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">Scene</span> <span class="p">{</span>
+        <span class="kt">WindowGroup</span> <span class="p">{</span>
+            <span class="kt">ContentView</span><span class="p">()</span>
+                <span class="o">.</span><span class="nf">environmentObject</span><span class="p">(</span><span class="n">repository</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Phew, that’s it. We can now test the app on a device or simulator and see that the button adds an item to the list.</p>
+
+<p>You can check the full source code on <a href="https://github.com/edgarkenji/SimpleTodo/tree/feature/checkbox">Github</a>. Keep in mind that since it might be incomplete as I progress through this series.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2020/11/27/devlog-a-simple-todo-app-3/">
+        Devlog - A simple to-do app - part 3
+      </a>
+    </h1>
+
+    <span class="post-date">27 Nov 2020</span>
+      <div class="post-tags">
+  
+    
+    <a class="tag-link" href=/tags/devlog/ rel="category tag">
+      #devlog
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/swiftui/ rel="category tag">
+      #swiftui
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/swift/ rel="category tag">
+      #swift
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/ios/ rel="category tag">
+      #ios
+    </a>
+  
+  </div>
+
+
+    <p>I’ll begin this devlog with a simple to-do app in SwiftUI. The idea is to explain the basic concepts of this language while we learn together. This will be the general roadmap of this series:</p>
+
+<ul>
+  <li><a href="% post_url 2020-11-25-devlog-sample-todo-app %">Create a checkbox</a></li>
+  <li><a href="% post_url 2020-11-26-devlog-sample-todo-app-2 %">Add a text to the checkbox</a></li>
+  <li>Use a data model to show a list of items</li>
+  <li>Add an item</li>
+  <li>Allow editing the text of the item</li>
+  <li>Delete an item</li>
+  <li>Add a tab bar and another view with a summary of the items</li>
+  <li>Add persistence to the items</li>
+</ul>
+
+<h2 id="use-a-data-model-to-show-a-list-of-items">Use a data model to show a list of items</h2>
+
+<p>It’s time to show our checkbox into a list of items. For that, we’ll need a data model to hold the state of our items, as well as a view to show the list.</p>
+
+<p>To start things off, let’s create our <code class="language-plaintext highlighter-rouge">TodoItem</code> data model:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">TodoItem</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="k">var</span> <span class="nv">checked</span><span class="p">:</span> <span class="kt">Bool</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Our list will look like:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">TodoItemListView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="kd">@Binding</span> <span class="k">var</span> <span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="kt">TodoItem</span><span class="p">]</span>
+    
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">List</span> <span class="p">{</span>
+            <span class="kt">ForEach</span><span class="p">(</span><span class="n">items</span><span class="o">.</span><span class="n">indices</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">in</span>
+                <span class="kt">Checkbox</span><span class="p">(</span><span class="nv">isChecked</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="err">$</span><span class="n">items</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">checked</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="kt">Text</span><span class="p">(</span><span class="k">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Our preview will look like:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">TodoItemListView_Previews</span><span class="p">:</span> <span class="kt">PreviewProvider</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">var</span> <span class="nv">previews</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">Group</span> <span class="p">{</span>
+            <span class="kt">TodoItemListView</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="o">.</span><span class="nf">constant</span><span class="p">([</span>
+                <span class="kt">TodoItem</span><span class="p">(</span><span class="nv">description</span><span class="p">:</span> <span class="s">"Teste"</span><span class="p">,</span> <span class="nv">checked</span><span class="p">:</span> <span class="kc">true</span><span class="p">),</span>
+                <span class="kt">TodoItem</span><span class="p">(</span><span class="nv">description</span><span class="p">:</span> <span class="s">"Teste 2"</span><span class="p">,</span> <span class="nv">checked</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+            <span class="p">]))</span>
+            <span class="kt">TodoItemListView</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="o">.</span><span class="nf">constant</span><span class="p">([]))</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>That’s a list alright, but it’s a boring static list. Next up we’ll make our list to be more dynamic, allowing us to add items to this list.</p>
+
+<p>You can check the full source code on <a href="https://github.com/edgarkenji/SimpleTodo/tree/feature/checkbox">Github</a>. Keep in mind that since it might be incomplete as I progress through this series.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2020/11/26/devlog-a-simple-todo-app-2/">
+        Devlog - A simple to-do app - part 2
+      </a>
+    </h1>
+
+    <span class="post-date">26 Nov 2020</span>
+      <div class="post-tags">
+  
+    
+    <a class="tag-link" href=/tags/devlog/ rel="category tag">
+      #devlog
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/swiftui/ rel="category tag">
+      #swiftui
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/swift/ rel="category tag">
+      #swift
+    </a>
+  
+    
+    <a class="tag-link" href=/tags/ios/ rel="category tag">
+      #ios
+    </a>
+  
+  </div>
+
+
+    <p>I’ll begin this devlog with a simple to-do app in SwiftUI. The idea is to explain the basic concepts of this language while we learn together. This will be the general roadmap of this series:</p>
+
+<ul>
+  <li><a href="% post_url 2020-11-25-devlog-sample-todo-app %">Create a checkbox</a></li>
+  <li>Add a text to the checkbox</li>
+  <li>Use a data model to show a list of items</li>
+  <li>Add an item</li>
+  <li>Allow editing the text of the item</li>
+  <li>Delete an item</li>
+  <li>Add a tab bar and another view with a summary of the items</li>
+  <li>Add persistence to the items</li>
+</ul>
+
+<h2 id="add-a-text-to-the-checkbox">Add a text to the checkbox</h2>
+
+<p>So now I want a label to go along with the checkbox, kinda like how the switch (it’s actually called <code class="language-plaintext highlighter-rouge">Toggle</code>) works. Let’s take a look at the relevant initializer:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Toggle</span><span class="p">(</span><span class="nv">isOn</span><span class="p">:</span> <span class="kt">Binding</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">,</span> <span class="kd">@ViewBuilder</span> <span class="nv">label</span><span class="p">:</span> <span class="p">()</span><span class="o">-&gt;</span><span class="kt">Label</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>We can do the same for our Checkbox, but we’ll have to change our <code class="language-plaintext highlighter-rouge">@State</code> to a <code class="language-plaintext highlighter-rouge">@Binding</code> variable, and adding a <code class="language-plaintext highlighter-rouge">@ViewBuilder</code> for our label:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Checkbox</span><span class="o">&lt;</span><span class="kt">Label</span><span class="p">:</span> <span class="kt">View</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    
+    <span class="kd">@Binding</span> <span class="k">var</span> <span class="nv">checked</span><span class="p">:</span> <span class="kt">Bool</span>
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">Label</span>
+    
+    <span class="nf">init</span><span class="p">(</span><span class="nv">isChecked</span><span class="p">:</span> <span class="kt">Binding</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">,</span> <span class="kd">@ViewBuilder</span> <span class="nv">label</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Label</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">_checked</span> <span class="o">=</span> <span class="n">isChecked</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="nf">label</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>First thing to note about the above code is that we turned our checkbox into a generic struct by adding <code class="language-plaintext highlighter-rouge">Label</code>, because SwiftUI doesn’t allow using View directly, we have to define a generic type constraint</li>
+  <li>Why <code class="language-plaintext highlighter-rouge">@Binding</code>? Because we’ll let the view containing the checkbox to update the value of our checkbox, instead of letting the checkbox own the state of the property</li>
+  <li>We use <code class="language-plaintext highlighter-rouge">@ViewBuilder</code> to allow the label to be defined to whatever view the parent wants it to be</li>
+</ul>
+
+<p>Now we need to put our label next to our checkbox:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="kt">HStack</span> <span class="p">{</span>
+            <span class="kt">Button</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">checked</span><span class="o">.</span><span class="nf">toggle</span><span class="p">()</span>
+            <span class="p">},</span> <span class="nv">label</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">checkbox</span>
+            <span class="p">})</span>
+            <span class="n">label</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>The final code:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Checkbox</span><span class="o">&lt;</span><span class="kt">Label</span><span class="p">:</span> <span class="kt">View</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    
+    <span class="kd">@Binding</span> <span class="k">var</span> <span class="nv">checked</span><span class="p">:</span> <span class="kt">Bool</span>
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">Label</span>
+    
+    <span class="nf">init</span><span class="p">(</span><span class="nv">isChecked</span><span class="p">:</span> <span class="kt">Binding</span><span class="o">&lt;</span><span class="kt">Bool</span><span class="o">&gt;</span><span class="p">,</span> <span class="kd">@ViewBuilder</span> <span class="nv">label</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Label</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">_checked</span> <span class="o">=</span> <span class="n">isChecked</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="nf">label</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">var</span> <span class="nv">checkbox</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">ZStack</span> <span class="p">{</span>
+            <span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"square"</span><span class="p">)</span>
+                <span class="o">.</span><span class="nf">resizable</span><span class="p">()</span>
+                <span class="o">.</span><span class="nf">frame</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="nv">alignment</span><span class="p">:</span> <span class="o">.</span><span class="n">center</span><span class="p">)</span>
+                <span class="o">.</span><span class="nf">foregroundColor</span><span class="p">(</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">checked</span> <span class="p">{</span>
+                <span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"checkmark"</span><span class="p">)</span>
+                    <span class="o">.</span><span class="nf">resizable</span><span class="p">()</span>
+                    <span class="o">.</span><span class="nf">frame</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">alignment</span><span class="p">:</span> <span class="o">.</span><span class="n">trailing</span><span class="p">)</span>
+                    <span class="o">.</span><span class="nf">padding</span><span class="p">(</span><span class="kt">EdgeInsets</span><span class="p">(</span><span class="nv">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">leading</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nv">bottom</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nv">trailing</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
+                    <span class="o">.</span><span class="nf">foregroundColor</span><span class="p">(</span><span class="kt">Color</span><span class="o">.</span><span class="n">green</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">HStack</span> <span class="p">{</span>
+            <span class="kt">Button</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">checked</span><span class="o">.</span><span class="nf">toggle</span><span class="p">()</span>
+            <span class="p">},</span> <span class="nv">label</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">checkbox</span>
+            <span class="p">})</span>
+            <span class="n">label</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Don’t forget to update the previews:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Checkbox_Previews</span><span class="p">:</span> <span class="kt">PreviewProvider</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">var</span> <span class="nv">previews</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">Group</span> <span class="p">{</span>
+            <span class="kt">Checkbox</span><span class="p">(</span><span class="nv">isChecked</span><span class="p">:</span> <span class="o">.</span><span class="nf">constant</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span> <span class="nv">label</span><span class="p">:</span> <span class="p">{</span> <span class="kt">Text</span><span class="p">(</span><span class="s">"Checked"</span><span class="p">)</span> <span class="p">})</span>
+                <span class="o">.</span><span class="nf">preferredColorScheme</span><span class="p">(</span><span class="o">.</span><span class="n">dark</span><span class="p">)</span>
+            <span class="kt">Checkbox</span><span class="p">(</span><span class="nv">isChecked</span><span class="p">:</span> <span class="o">.</span><span class="nf">constant</span><span class="p">(</span><span class="kc">false</span><span class="p">),</span> <span class="nv">label</span><span class="p">:</span> <span class="p">{</span> <span class="kt">Text</span><span class="p">(</span><span class="s">"Not checked"</span><span class="p">)</span> <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>You can check the full source code on <a href="https://github.com/edgarkenji/SimpleTodo/tree/feature/checkbox">Github</a>. Keep in mind that since it might be incomplete as I progress through this series.</p>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page2">Older</a>
+  
+  
+    <span class="pagination-item newer">Newer</span>
+  
+</div>
+    </div>
+
+  </body>
+</html>
