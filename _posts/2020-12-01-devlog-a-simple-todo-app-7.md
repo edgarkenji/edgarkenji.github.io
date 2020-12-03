@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Devlog - A simple to-do app - part 6
+title: Devlog - A simple to-do app - part 7
 tags: devlog swiftui swift ios
 ---
 
