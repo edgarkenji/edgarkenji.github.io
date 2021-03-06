@@ -2,7 +2,14 @@ FROM ruby:2 AS build
 
 RUN gem install bundler
 
+#Install git
+RUN apt-get update \        
+	apt-get install -y git
+
 WORKDIR /workspace
+
+RUN git clone https://github.com/edgarkenji/edgarkenji.github.io.git
+
 COPY Gemfile* /workspace/
 RUN bundle install
 
