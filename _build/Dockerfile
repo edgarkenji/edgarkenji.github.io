@@ -2,21 +2,18 @@ FROM ruby:2 AS build
 
 RUN gem install bundler
 
-#Install git
-RUN apt-get update \        
-	apt-get install -y git
+RUN mkdir -p /workspace/__site
 
 WORKDIR /workspace
 
-RUN git clone https://github.com/edgarkenji/edgarkenji.github.io.git
+RUN cd /workspace
+RUN git clone https://github.com/edgarkenji/edgarkenji.github.io.git ./__site
 
-COPY Gemfile* /workspace/
+RUN cp -R __site/* /workspace
 RUN bundle install
 
-COPY . /workspace
 ENV JEKYLL_ENV=production
 RUN bundle exec jekyll build
-
 
 FROM nginx:1
 
