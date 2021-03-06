@@ -18,7 +18,7 @@ RUN bundle exec jekyll build
 FROM nginx:1
 
 WORKDIR /app
-COPY _app /app
+COPY --from=build /workspace/_app /app
 COPY --from=build /workspace/_site /app/site
 
 CMD ["/app/start.sh"]
