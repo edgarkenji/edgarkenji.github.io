@@ -9,7 +9,8 @@ WORKDIR /workspace
 RUN cd /workspace
 RUN git clone https://github.com/edgarkenji/edgarkenji.github.io.git ./__site
 
-RUN cp -R __site/* /workspace
+RUN cp -R /workspace/__site/* /workspace
+
 RUN bundle install
 
 ENV JEKYLL_ENV=production
