@@ -28,6 +28,9 @@
 }
 
 .cta img {
+	justify-content: flex-start;
+	align-items: center;
+	display: flex;
 	width: 64px; 
 	height: 64px; 
 	float: left;
